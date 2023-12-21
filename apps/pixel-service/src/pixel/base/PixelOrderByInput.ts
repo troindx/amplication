@@ -50,7 +50,7 @@ class PixelOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  ID?: SortOrder;
+  moodId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -83,7 +83,7 @@ class PixelOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  ID?: SortOrder;
+  userId?: SortOrder;
 
   @ApiProperty({
     required: false,

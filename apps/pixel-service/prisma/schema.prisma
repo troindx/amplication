@@ -23,8 +23,8 @@ model User {
 model Pixel {
   createdAt DateTime @default(now())
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  mood      Mood?    @relation(fields: [ID], references: [id])
-  ID        String?  @db.ObjectId
+  mood      Mood?    @relation(fields: [moodId], references: [id])
+  moodId    String?  @db.ObjectId
   note      String?
   updatedAt DateTime @updatedAt
   user      User?
