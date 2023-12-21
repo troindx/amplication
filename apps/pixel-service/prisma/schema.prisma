@@ -1,0 +1,40 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastName  String?
+  password  String
+  pixels    Pixel?   @relation(fields: [pixelsId], references: [id])
+  pixelsId  String?  @unique @db.ObjectId
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model Pixel {
+  createdAt DateTime @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  mood      Mood?    @relation(fields: [ID], references: [id])
+  ID        String?  @db.ObjectId
+  note      String?
+  updatedAt DateTime @updatedAt
+  user      User?
+  value     Int?
+}
+
+model Mood {
+  createdAt DateTime @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  pixels    Pixel[]
+  updatedAt DateTime @updatedAt
+}
