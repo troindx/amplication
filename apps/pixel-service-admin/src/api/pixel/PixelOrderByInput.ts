@@ -3,9 +3,9 @@ import { SortOrder } from "../../util/SortOrder";
 export type PixelOrderByInput = {
   createdAt?: SortOrder;
   id?: SortOrder;
-  ID?: SortOrder;
+  moodId?: SortOrder;
   note?: SortOrder;
   updatedAt?: SortOrder;
-  ID?: SortOrder;
+  userId?: SortOrder;
   value?: SortOrder;
 };

@@ -22,7 +22,7 @@ export const MoodShow = (props: ShowProps): React.ReactElement => {
         <TextField label="ID" source="id" />
         <TextField label="name" source="name" />
         <DateField source="updatedAt" label="Updated At" />
-        <ReferenceManyField reference="Pixel" target="ID" label="pixels">
+        <ReferenceManyField reference="Pixel" target="moodId" label="pixels">
           <Datagrid rowClick="show">
             <DateField source="createdAt" label="Created At" />
             <TextField label="ID" source="id" />
